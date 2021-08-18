@@ -12,9 +12,9 @@ const emojiDictionary = {
 var emojisWeKnow = Object.keys(emojiDictionary);
 
 export default function App() {
-  const [meaning, setMeaning] = useState("");
   const [emojiName, setEmojiName] = useState("");
   function emojiInputHandler(event) {
+    console.log(event.target.value);
     if (event.target.value.length == 0) {
       setEmojiName("");
     } else {
@@ -23,8 +23,7 @@ export default function App() {
       var meaning_value = emojiDictionary[userInput];
       if (meaning_value === undefined) {
         setEmojiName("we dont have this in our database");
-      }
-      setMeaning(meaning);
+      } else setEmojiName(meaning_value);
     }
   }
 
