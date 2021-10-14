@@ -27,6 +27,10 @@ export default function App() {
     setMeaning(meaning);
   }
 
+  function handleClickOnEmoji(emoji) {
+    setMeaning(emojiDictionary[emoji]);
+  }
+
   return (
     <div className="App">
       <h1>Know Your Emotions</h1>
@@ -35,7 +39,15 @@ export default function App() {
       <h2> {meaning} </h2>
       <h3> emojis we know </h3>
       {emojisWeKnow.map(function (emoji) {
-        return <span> {emoji} </span>;
+        return (
+          <span
+            style={{ cursor: "pointer" }}
+            onClick={() => handleClickOnEmoji(emoji)}
+          >
+            {" "}
+            {emoji}{" "}
+          </span>
+        );
       })}
     </div>
   );
